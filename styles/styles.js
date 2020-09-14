@@ -92,7 +92,7 @@ const section = styled.section`
   margin-top: 1rem;
 
   span:first-of-type {
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
   span {
     display: flex;
@@ -162,10 +162,11 @@ const section = styled.section`
 `;
 
 const hr = styled.hr`
-  background: ${({ theme }) => theme.gradient};
-  color: ${({ theme }) => theme.title};
+  background: ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.text};
   height: 1px;
   border: none;
+  opacity: 0.2;
 `;
 
 export { layout, main, form, button, div, section, hr };

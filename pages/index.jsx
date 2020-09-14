@@ -79,26 +79,22 @@ export default function Home() {
             id="link"
           />
           <S.div>
-            <S.button type="submit">Inserir</S.button>
+            <S.button type="submit">Insert</S.button>
             <S.button type="button" onClick={() => saveLinksOnStorage(links)}>
               Save
             </S.button>
           </S.div>
         </S.form>
         <S.section>
-          {links && <S.hr />}
-          {links ? (
-            links.map((element) => (
-              <span key={element.id}>
-                <a href={element.link}>{element.name}</a>
-                <button id={element.id} onClick={deleteLink}>
-                  delete
-                </button>
-              </span>
-            ))
-          ) : (
-            <p>Nenhum item encontrado.</p>
-          )}
+          {links[0] && <S.hr />}
+          {links.map((element) => (
+            <span key={element.id}>
+              <a href={element.link}>{element.name}</a>
+              <button id={element.id} onClick={deleteLink}>
+                delete
+              </button>
+            </span>
+          ))}
         </S.section>
       </S.main>
     </div>
