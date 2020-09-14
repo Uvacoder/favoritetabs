@@ -12,7 +12,7 @@ export default function Home() {
 
   const handleSubmit = (event, links) => {
     event.preventDefault();
-    
+
     const nameUrl = event.target?.name?.value;
     const url = event.target?.link?.value;
 
@@ -89,7 +89,9 @@ export default function Home() {
           {links[0] && <S.hr />}
           {links.map((element) => (
             <span key={element.id}>
-              <a href={element.link}>{element.name}</a>
+              <a target="_blank" href={element.link}>
+                {element.name}
+              </a>
               <button id={element.id} onClick={deleteLink}>
                 delete
               </button>
