@@ -47,7 +47,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Link Pages</title>
+        <title>Save Open Tabs</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <S.main>
