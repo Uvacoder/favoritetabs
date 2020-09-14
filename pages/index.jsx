@@ -14,7 +14,7 @@ export default function Home() {
     event.preventDefault();
     
     const nameUrl = event.target?.name?.value;
-    const url = event.target?.name?.value;
+    const url = event.target?.link?.value;
 
     setLinks([
       ...links,
