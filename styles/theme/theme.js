@@ -12,6 +12,7 @@ const darkTheme = {
   fontSecondary: 'InterBold',
   borderShadow: 'rgba(250, 250, 250, 0.5)',
   box: '#262d34',
+  input: '#262d34',
 };
 
 const lightTheme = {
@@ -28,6 +29,7 @@ const lightTheme = {
   fontSecondary: 'InterBold',
   borderShadow: 'rgba(0, 0, 0, 0.3)',
   box: '#f1f1f1',
+  input: '#262d34',
 };
 
 export { lightTheme, darkTheme };

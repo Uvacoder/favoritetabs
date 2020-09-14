@@ -53,7 +53,7 @@ const form = styled.form`
     border-radius: 4px;
     width: 100%;
     background: ${({ theme }) => theme.blockquoteBorder};
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.input};
     font-family: ${({ theme }) => theme.fontPrimary};
     font-size: clamp(12px, 2vw, 0.8rem);
     &::placeholder {
