@@ -12,14 +12,20 @@ export default function Home() {
 
   const handleSubmit = (event, links) => {
     event.preventDefault();
-    return setLinks([
+    
+    const nameUrl = event.target?.name?.value;
+    const url = event.target?.name?.value;
+
+    setLinks([
       ...links,
       {
         id: uuidv4(),
-        name: event.target?.name?.value,
-        link: event.target?.link?.value,
+        name: nameUrl,
+        link: url,
       },
     ]);
+    event.target.name.value = '';
+    event.target.link.value = '';
   };
 
   const saveLinksOnStorage = (links) => {
