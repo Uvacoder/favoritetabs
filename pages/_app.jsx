@@ -3,6 +3,7 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { useDarkMode } from '../hooks/useDarkMode';
 import { Header } from '../components/Header/Header';
+import { SEO } from '../components/Head/Head';
 
 import { lightTheme, darkTheme } from '../styles/theme/theme';
 import { GlobalStyles } from '../styles/global';
@@ -17,6 +18,7 @@ function App({ Component, pageProps }) {
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
+      <SEO />
       <Layout>
         <Header theme={theme} toggleTheme={toggleTheme} />
         <Component {...pageProps} />

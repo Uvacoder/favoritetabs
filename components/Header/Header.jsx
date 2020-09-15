@@ -7,7 +7,7 @@ import * as S from './styles';
 function Header({ theme, toggleTheme }) {
   return (
     <S.header>
-      <h1>Save Links</h1>
+      <h1>SaveOpenTabs</h1>
       <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
     </S.header>
   );

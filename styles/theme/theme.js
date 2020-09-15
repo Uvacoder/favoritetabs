@@ -14,6 +14,7 @@ const darkTheme = {
   box: '#262d34',
   input: '#262d34',
   inputBackground: '#e8f0fe',
+  error: '#972f3d',
 };
 
 const lightTheme = {
@@ -32,6 +33,7 @@ const lightTheme = {
   box: '#f1f1f1',
   input: '#1d2227',
   inputBackground: '#e8f0fe',
+  error: '#b00020',
 };
 
 export { lightTheme, darkTheme };

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { useForm } from 'react-hook-form'; 
+import { useForm } from 'react-hook-form';
 
-import Head from 'next/head';
 import {
   getDateAdded,
   dataStringfy,
@@ -15,10 +14,16 @@ import * as S from '../styles/styles';
 
 export default function Home() {
   const [links, setLinks] = useState([]);
-  const { register, handleSubmit, watch, errors, reset } = useForm();
+  const { register, handleSubmit, errors, reset } = useForm();
+
+  const saveLinksOnStorage = (links) => {
+    const data = dataStringfy(links);
+    dataSaveOnStorage(data);
+  };
 
   const onSubmit = async (data, event) => {
     event.preventDefault();
+
     const { name, link } = await data;
     const added = getDateAdded();
 
@@ -32,11 +37,6 @@ export default function Home() {
       },
     ]);
     event.target.reset();
-  };
-
-  const saveLinksOnStorage = (links) => {
-    const data = dataStringfy(links);
-    dataSaveOnStorage(data);
   };
 
   const deleteLink = ({ target }) => {
@@ -59,10 +59,6 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
-        <title>Save Open Tabs</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <S.main>
         <S.form onSubmit={handleSubmit(onSubmit)}>
           <div className="input-container">
@@ -74,7 +70,7 @@ export default function Home() {
               type="text"
               name="name"
               id="name"
-              ref={register({ maxLength: 20, required: true })}
+              ref={register({ maxLength: 30, required: true })}
             />
             {errors.name && (
               <S.error>This field is required and max length is 20</S.error>
