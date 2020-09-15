@@ -6352,6 +6352,7 @@ fsevents@~2.1.2:
     prop-types: ^15.7.2
     react: 16.13.1
     react-dom: 16.13.1
+    react-hook-form: ^6.8.2
     react-hooks: ^1.0.1
     react-is: ^16.13.1
     styled-components: ^5.2.0
@@ -6863,6 +6864,15 @@ fsevents@~2.1.2:
   peerDependencies:
     react: ^16.13.1
   checksum: fb5c3ad41360c6a8674f33916aa895d05e79d063d31a6963074220c1cda9e07e880799d01670b4ebd570b4d3457584f13cc898b5033a05641e8e801f5611607e
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:^6.8.2":
+  version: 6.8.2
+  resolution: "react-hook-form@npm:6.8.2"
+  peerDependencies:
+    react: ^16.8.0
+  checksum: cabb6f60fc0c613b4ec904efa4aef283bef13d879aac68f54e34afc5f9517f8953cff0445e6b7d5729ffcab58e6e6e0572f5cde2609e5980fc85c25eb71e40bf
   languageName: node
   linkType: hard
 

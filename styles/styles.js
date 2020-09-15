@@ -45,14 +45,17 @@ const form = styled.form`
     margin: 0 0 10px 0;
     width: 100%;
   }
+  label:last-of-type {
+    margin-top: 1rem;
+  }
   input {
     padding: 1rem;
     outline: 0;
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
     border: none;
     border-radius: 4px;
     width: 100%;
-    background: ${({ theme }) => theme.blockquoteBorder};
+    background: ${({ theme }) => theme.inputBackground};
     color: ${({ theme }) => theme.input};
     font-family: ${({ theme }) => theme.fontPrimary};
     font-size: clamp(12px, 2vw, 0.8rem);
@@ -80,10 +83,10 @@ const button = styled.button`
 `;
 
 const div = styled.div`
-    margin-top: 1rem;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const section = styled.section`
@@ -91,71 +94,56 @@ const section = styled.section`
   width: 100%;
   margin-top: 1rem;
 
-  span:first-of-type {
-    margin-top: 2rem;
-  }
-  span {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .container {
     background: ${({ theme }) => theme.box};
-    margin: 15px 0 0 0;
-    height: 3rem;
-    border-left: 0.3rem solid ${({ theme }) => theme.borderShadow};
-
-    a {
-      box-shadow: inset 0 -5px 0 ${({ theme }) => theme.primary};
-      transition: box-shadow 0.5s ease;
-      font-size: clamp(16px, 2vw, 1.2rem);
-      font-family: ${({ theme }) => theme.primary};
-      margin: 0 0 0 10px;
-      &:hover {
-        box-shadow: inset 0 -5px 0 ${({ theme }) => theme.primaryHover};
+    width: 100%;
+    height: max-content;
+    padding: 10px 0 0 10px;
+    border-left: 3px solid ${({ theme }) => theme.textLow};
+    position: relative;
+    margin-top: 2rem;
+    span {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      a {
+        box-shadow: inset 0 -6px ${({ theme }) => theme.primary};
+        font-family: ${({ theme }) => theme.fontSecondary};
+        &:hover {
+          box-shadow: inset 0 -6px ${({ theme }) => theme.primaryHover};
+        }
+      }
+      button {
+        outline: 0;
+        border: 0;
+        position: absolute;
+        top: 10px;
+        right: 0;
+        margin-right: 10px;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 100%;
+        background: ${({ theme }) => theme.primary};
+        color: #fff;
+        cursor: pointer;
+        transition: background 0.3s ease-out;
+        &::before {
+          content: 'X';
+        }
+        &:hover {
+          background: ${({ theme }) => theme.primaryHover};
+        }
       }
     }
-    button {
-      margin: 15px 0;
-      border: none;
-      outline: none;
-      width: 30%;
-      height: 80%;
-      cursor: pointer;
-      transition: background 1s ease-in-out;
-      background: ${({ theme }) => theme.button};
-      font-size: clamp(12px, 2vw, 1.2rem);
-      color: #fefefe;
-      height: 100%;
-      position: relative;
-      &:after,
-      &:before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        top: 0;
-        left: 0;
-        right: 0;
-        transition: transform 0.3s ease-in-out;
-      }
-      &:before {
-        border-left: 1px solid ${({ theme }) => theme.text};
-        border-right: 1px solid ${({ theme }) => theme.text};
-        transform: scaleY(0);
-      }
-      &:after {
-        border-top: 1px solid ${({ theme }) => theme.text};
-        border-bottom: 1px solid ${({ theme }) => theme.text};
-        transform: scaleX(0);
-      }
-
-      &:hover:after {
-        transform: scaleY(1);
-      }
-      &:hover:before {
-        transform: scaleX(1);
-      }
-
-      &:hover {
-        background: ${({ theme }) => theme.buttonHover};
+    .added {
+      display: flex;
+      align-items: center;
+      padding-bottom: 10px;
+      p {
+        font-size: clamp(10px, 2vw, 0.6rem);
+        font-family: ${({ theme }) => theme.fontSecondary};
+        margin-right: 10px;
       }
     }
   }
@@ -169,4 +157,15 @@ const hr = styled.hr`
   opacity: 0.2;
 `;
 
-export { layout, main, form, button, div, section, hr };
+const error = styled.span`
+  display: block;
+  font-size: clamp(12px, 2vw, 0.8rem);
+  font-family: ${({ theme }) => theme.fontPrimary};
+  color: ${({ theme }) => theme.title};
+`;
+
+const header = styled.header`
+  height: 2rem;
+`
+
+export { layout, main, form, button, div, section, hr, error, header };
