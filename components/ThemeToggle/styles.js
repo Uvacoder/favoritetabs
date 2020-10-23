@@ -18,23 +18,24 @@ const Button = styled.button`
   img {
     height: 1.2rem;
     width: 1rem;
-    transition: all 0.3s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    transition: all 0.3s ease-in-out;
     color: #fff;
     /* sun */
     &:first-child {
-      transform: ${({ lightTheme }) =>
-        lightTheme ? 'translateY(0)' : 'translateY(100px)'};
+      transform: ${({ lightTheme }) => lightTheme ? 'translateY(0)' : 'translateY(100px)'};
+      margin: 0 0 0 2px;
+      width: calc(1rem - 5px);
     }
     /* moon */
     &:nth-child(2) {
-      transform: ${({ lightTheme }) =>
-        lightTheme ? 'translateY(-100px)' : 'translateY(0)'};
-      margin: 1px 0.7px 0 0;
+      transform: ${({ lightTheme }) => lightTheme ? 'translateY(-100px)' : 'translateY(0)'};
+      margin: 0.4px 0.1px 0 0;
+      width: calc(1rem - 2px);
     }
   }
   @media (max-width: 1000px) {
     width: 2.4rem;
-    height: 0.8rem;
+    height: 1rem;
     img {
       height: 0.8rem;
       width: 0.7rem;

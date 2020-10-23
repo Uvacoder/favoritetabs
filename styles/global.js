@@ -3,15 +3,17 @@ import { createGlobalStyle } from 'styled-components';
 
 import Inter_Regular from '../fonts/Inter_Web/Inter-Regular.woff2';
 import Inter_SemiBold from '../fonts/Inter_Web/Inter-SemiBold.woff2';
-import Inter_Bold from '../fonts/Inter_Web/Inter-Bold.woff2';
 
 const GlobalStyles = createGlobalStyle`
    @font-face {
     font-family: 'Inter';
-    src: url(${Inter_Regular}) format('woff2'),
-    url(${Inter_SemiBold}) format('woff2'),
-    url(${Inter_Bold}) format('woff2'),
+    src: url(${Inter_Regular}) format('woff2');
+    src: url('${Inter_Regular}?#iefix') format('embedded-opentype'),
+        url(${Inter_Regular}) format('woff2'),
+        url(${Inter_Regular}) format('woff'),
+        url(${Inter_Regular}) format('truetype')
   }
+
   @font-face {
     font-family: 'InterBold';
     src: url(${Inter_SemiBold}) format('woff2')
@@ -22,6 +24,11 @@ const GlobalStyles = createGlobalStyle`
   *::before {
     box-sizing: border-box;
   }
+
+  input, textarea, button {
+    font-family: ${({ theme }) => theme.fontPrimary}; 
+  }
+
   html {
     scroll-behavior: smooth;
   }

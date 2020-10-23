@@ -2,7 +2,6 @@ module.exports = {
   env: {
     browser: true,
     es2020: true,
-    es6: true,
     // jest: true,
   },
   extends: [
@@ -12,6 +11,10 @@ module.exports = {
     // 'prettier',
     'prettier/react',
     // 'eslint:recommended',
+    'plugin:prettier/recommended',
+    'prettier/flowtype',
+    'prettier/react',
+    'prettier/standard',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -45,13 +48,7 @@ module.exports = {
     ],
     'block-scoped-var': 'error',
     eqeqeq: ['error', 'always'],
-    'max-len': [
-      'error',
-      {
-        code: 90,
-        tabWidth: 2,
-      },
-    ],
+    'max-len': 'off',
     // indent: [2, 'tab'],
     'import-helpers/order-imports': [
       'warn',
@@ -122,12 +119,18 @@ module.exports = {
     complexity: [
       'warn',
       {
-        max: 3,
+        max: 6,
       },
     ],
     treatUndefinedAsUnspecified: 'off',
     eqeqeq: ['error', 'smart'],
-    'prettier/prettier': ['error', { singleQuote: true, parser: 'flow' }],
+    'prettier/prettier': [
+      'error',
+      {},
+      {
+        usePrettierrc: true,
+      },
+    ],
     'class-methods-use-this': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     'typescript-eslint/interface-name-prefix': 'off',

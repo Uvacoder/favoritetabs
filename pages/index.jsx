@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { useForm } from 'react-hook-form';
-
-import {
-  getDateAdded,
-  dataStringfy,
-  dataSaveOnStorage,
-  dataParse,
-  getItemOnStorage,
-} from '../utils/date';
+import { v4 as uuidv4 } from 'uuid';
 
 import * as S from '../styles/styles';
+import { dataParse, dataSaveOnStorage, dataStringfy, getDateAdded, getItemOnStorage } from '../utils/date';
 
 export default function Home() {
   const [links, setLinks] = useState([]);
@@ -25,7 +18,7 @@ export default function Home() {
     event.preventDefault();
 
     const { name, link } = await data;
-    const added = getDateAdded();
+    const date = getDateAdded();
 
     setLinks([
       ...links,
@@ -33,7 +26,7 @@ export default function Home() {
         id: uuidv4(),
         name: name,
         link: link,
-        date: added,
+        date,
       },
     ]);
     event.target.reset();
@@ -66,14 +59,14 @@ export default function Home() {
               Name
             </label>
             <input
-              placeholder="name for the link"
+              placeholder="Name of a URL Link"
               type="text"
               name="name"
               id="name"
-              ref={register({ maxLength: 30, required: true })}
+              ref={register({ maxLength: 50, required: true })}
             />
             {errors.name && (
-              <S.error>This field is required and max length is 20</S.error>
+              <S.error>This field is required and max length is 50</S.error>
             )}
           </div>
           <div className="input-container">
@@ -82,11 +75,11 @@ export default function Home() {
               Link{' '}
             </label>
             <input
-              placeholder="link addresss"
+              placeholder="Web page link or URL"
               type="text"
               name="link"
               id="link"
-              ref={register({ minLength: 5, required: true })}
+              ref={register({ minLength: 2, required: true })}
             />
             {errors.link && (
               <S.error>This field is required and min length is 5</S.error>
@@ -104,7 +97,7 @@ export default function Home() {
           {links.map((element) => (
             <div className="container" key={element.id}>
               <span>
-                <a target="_blank" href={element.link}>
+                <a target="_blank" rel="noreferrer" href={element.link}>
                   {element.name}
                 </a>
                 <button id={element.id} onClick={deleteLink}></button>

@@ -30,9 +30,9 @@ const lightTheme = {
   fontPrimary: 'Inter',
   fontSecondary: 'InterBold',
   borderShadow: 'rgba(0, 0, 0, 0.3)',
-  box: '#f1f1f1',
+  box: '#efefef',
   input: '#1d2227',
-  inputBackground: '#e8f0fe',
+  inputBackground: '#e4f4fe',
   error: '#b00020',
 };
 

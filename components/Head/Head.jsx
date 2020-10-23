@@ -1,10 +1,10 @@
-import React from 'react';
 import Head from 'next/head';
+import React from 'react';
 
 function SEO() {
   return (
     <Head>
-      <title>Save Open Tabs</title>
+      <title>Favorite Tabs</title>
       <link rel="icon" href="/favicon.ico" />
       <meta
         name="viewport"

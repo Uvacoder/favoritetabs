@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 const layout = styled.div`
   width: 100%;
@@ -44,6 +44,7 @@ const form = styled.form`
     font-family: ${({ theme }) => theme.fontSecondary};
     margin: 0 0 10px 0;
     width: 100%;
+    font-size: clamp(14px, 1rem, 2vw);
   }
   label:last-of-type {
     margin-top: 1rem;
@@ -70,7 +71,7 @@ const button = styled.button`
   border: none;
   outline: none;
   padding: 15px 5px;
-  border-radius: 4px;
+  border-radius: 8px;
   width: 45%;
   cursor: pointer;
   transition: all 0.4s ease-in-out;
@@ -90,7 +91,6 @@ const div = styled.div`
 `;
 
 const section = styled.section`
-  min-width: max-content;
   width: 100%;
   margin-top: 1rem;
 
@@ -102,14 +102,18 @@ const section = styled.section`
     border-left: 3px solid ${({ theme }) => theme.textLow};
     position: relative;
     margin-top: 2rem;
+
     span {
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: relative;
       a {
+        overflow: hidden;
+        text-overflow: ellipsis;
         box-shadow: inset 0 -6px ${({ theme }) => theme.primary};
         font-family: ${({ theme }) => theme.fontSecondary};
+        transition: box-shadow 0.4s ease-in-out;
         &:hover {
           box-shadow: inset 0 -6px ${({ theme }) => theme.primaryHover};
         }
@@ -166,6 +170,6 @@ const error = styled.span`
 
 const header = styled.header`
   height: 2rem;
-`
+`;
 
 export { layout, main, form, button, div, section, hr, error, header };
