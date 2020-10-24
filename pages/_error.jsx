@@ -9,7 +9,7 @@ export default function Error() {
     <Container>
       <img
         src={PageNotFound}
-        alt="Ops, a página que você procura não foi encontrada"
+        alt="Oops, the page you are looking for was not found"
       />
       <p>Ops... This page could not be found!</p>
       <Link href="/">Get up to initial page ?</Link>

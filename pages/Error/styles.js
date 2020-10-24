@@ -35,12 +35,13 @@ const Container = styled.section`
   position: absolute;
   left: 0;
   width: 100%;
-  height: 80%;
+  height: calc(100% - 13%);
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-flow: column wrap;
   place-content: center;
-  transition: all 0.6s ease-out;
+  transition: all 0.6s ease;
   overflow-x: hidden;
   padding: 10px;
   img {

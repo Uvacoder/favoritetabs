@@ -26,6 +26,16 @@ const Pulse = keyframes`
   }
 `;
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
+
 const layout = styled.div`
   width: 100%;
   padding: 0 10px;
@@ -123,9 +133,7 @@ const div = styled.div`
   justify-content: space-between;
 `;
 
-const section = styled.section.attrs((props) => {
-  console.log('PROOOOOOOOOOOOOPS', props);
-})`
+const section = styled.section`
   width: 100%;
   margin-top: 1rem;
 
@@ -155,26 +163,26 @@ const section = styled.section.attrs((props) => {
           animation: ${Pulse} 500ms both;
         }
       }
-      button {
-        outline: 0;
-        border: 0;
-        position: absolute;
-        top: 10px;
-        right: 0;
-        margin-right: 10px;
-        width: 2rem;
+      div {
+        max-width: 1.2rem;
         height: 2rem;
-        border-radius: 100%;
-        background: ${({ theme }) => theme.primary};
-        color: #fff;
-        cursor: pointer;
-        transition: background 0.3s ease-out;
-        &::before {
-          content: 'X';
-        }
-        &:hover {
-          background: ${({ theme }) => theme.primaryHover};
-          animation: ${Pulse} 500ms both;
+        svg {
+          display: flexbox;
+          outline: 0;
+          border: 0;
+          position: absolute;
+          top: 15px;
+          right: 0;
+          margin-right: 10px;
+          height: 100%;
+          cursor: pointer;
+          fill: ${({ theme }) => theme.title};
+          path {
+            stroke: rgb(255, 255, 255);
+            stroke-width: 0;
+          }
+          &:hover {
+          }
         }
       }
     }
@@ -204,6 +212,7 @@ const error = styled.span`
   font-size: clamp(12px, 2vw, 0.8rem);
   font-family: ${({ theme }) => theme.fontPrimary};
   color: ${({ theme }) => theme.title};
+  animation: ${fadeIn} 500ms both;
 `;
 
 const header = styled.header`
