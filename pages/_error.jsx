@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 
 import PageNotFound from '../public/error-404-colour.svg';
-import { Container } from './Error/styles';
+import Container from './Error/styles';
 
 export default function Error() {
   return (
