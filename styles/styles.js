@@ -36,6 +36,55 @@ const fadeIn = keyframes`
   }
 `;
 
+const bounceIn = keyframes`
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+`;
+
+const zoomIn = keyframes`
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+`;
+
 const layout = styled.div`
   width: 100%;
   padding: 0 10px;
@@ -115,6 +164,7 @@ const button = styled.button`
   background: ${({ theme }) => theme.primary};
   font-family: ${({ theme }) => theme.fontSecondary};
   color: #fefefe;
+  animation: ${bounceIn} 600ms both;
   &:hover {
     background: ${({ theme }) => theme.primaryHover};
   }
@@ -163,26 +213,18 @@ const section = styled.section`
           animation: ${Pulse} 500ms both;
         }
       }
-      div {
-        max-width: 1.2rem;
-        height: 2rem;
-        svg {
-          display: flexbox;
-          outline: 0;
-          border: 0;
-          position: absolute;
-          top: 15px;
-          right: 0;
-          margin-right: 10px;
-          height: 100%;
-          cursor: pointer;
-          fill: ${({ theme }) => theme.title};
-          path {
-            stroke: rgb(255, 255, 255);
-            stroke-width: 0;
-          }
-          &:hover {
-          }
+      img {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 0;
+        margin-right: 10px;
+        outline: 0;
+        border: 0;
+        cursor: pointer;
+        background: rgba(0, 0, 0, 0);
+        &:hover {
+          animation: ${Pulse} 1000ms both;
         }
       }
     }
@@ -205,6 +247,7 @@ const hr = styled.hr`
   height: 1px;
   border: none;
   opacity: 0.2;
+  animation: ${zoomIn} 1000ms both;
 `;
 
 const error = styled.span`
@@ -212,7 +255,7 @@ const error = styled.span`
   font-size: clamp(12px, 2vw, 0.8rem);
   font-family: ${({ theme }) => theme.fontPrimary};
   color: ${({ theme }) => theme.title};
-  animation: ${fadeIn} 500ms both;
+  animation: ${fadeIn} 1000ms both;
 `;
 
 const header = styled.header`

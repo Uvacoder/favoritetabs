@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { showToast } from '../components/ToastAnimated';
 import { ToastContainerStyle } from '../components/ToastAnimated/styles';
+import Trash from '../public/icons8-trash.svg';
 import * as S from '../styles/styles';
 import { dataParse, dataSaveOnStorage, dataStringfy, getFormatedDate, getItemOnStorage } from '../utils/date';
 
@@ -114,21 +115,12 @@ export default function Home() {
                   <a target="_blank" rel="noreferrer" href={link.link}>
                     {link.name}
                   </a>
-                  <div>
-                    <svg
-                      id={link.id}
-                      onClick={deleteLink}
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24px"
-                      height="24px">
-                      <path d="M2 3H22V5H2zM4 6v16.5C4 23.3 4.7 24 5.5 24h13.1c.8 0 1.5-.7 1.5-1.5V6H4zM11 22h-1V9h1V22zM14 22h-1V9h1V22zM17 22h-1V9h1V22zM8 22H7V9h1V22z" />
-                      <path
-                        strokeWidth="2.08"
-                        d="M16,4H8V3.3C8,2,9,1,10.3,1h3.5C15,1,16,2,16,3.3V4z"
-                      />
-                    </svg>
-                  </div>
+                  <img
+                    id={link.id}
+                    onClick={deleteLink}
+                    src={Trash}
+                    alt="delete link"
+                  />
                 </span>
                 <div className="added">
                   <p>Added: {link.date}</p>
