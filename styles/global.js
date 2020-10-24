@@ -1,8 +1,20 @@
 /* eslint-disable max-len */
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, keyframes } from 'styled-components';
 
 import Inter_Regular from '../fonts/Inter_Web/Inter-Regular.woff2';
 import Inter_SemiBold from '../fonts/Inter_Web/Inter-SemiBold.woff2';
+
+const fadeIn = keyframes`
+  from {
+    transform: scale(100);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+`;
 
 const GlobalStyles = createGlobalStyle`
    @font-face {
@@ -38,8 +50,9 @@ const GlobalStyles = createGlobalStyle`
     width: 100%;
     margin: 0;
     padding: 0;
-    transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in;
     -webkit-font-smoothing: antialiased;
+    animation: ${fadeIn}
   }
   a {
     color: inherit;

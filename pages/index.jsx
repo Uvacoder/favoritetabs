@@ -1,23 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { showToast } from '../components/ToastAnimated/index';
 import { v4 as uuidv4 } from 'uuid';
 
-import * as S from '../styles/styles';
-import {
-  dataParse,
-  dataSaveOnStorage,
-  dataStringfy,
-  getFormatedDate,
-  getItemOnStorage,
-} from '../utils/date';
+import { showToast } from '../components/ToastAnimated';
 import { ToastContainerStyle } from '../components/ToastAnimated/styles';
+import * as S from '../styles/styles';
+import { dataParse, dataSaveOnStorage, dataStringfy, getFormatedDate, getItemOnStorage } from '../utils/date';
 
 export default function Home() {
-  const [links, setLinks] = useState([]);
+  const [cardLinks, setCardLinks] = useState([]);
   const { register, handleSubmit, errors, reset } = useForm();
+  const [isAnimation, setAnimation] = useState(false);
 
-  const saveLinksOnStorage = (links) => {
+  const saveLinksOnStorage = (links = cardLinks) => {
     const data = dataStringfy(links);
     dataSaveOnStorage(data);
 
@@ -30,8 +25,8 @@ export default function Home() {
 
     const { name, link } = await data;
     const date = getFormatedDate();
-    setLinks([
-      ...links,
+    setCardLinks([
+      ...cardLinks,
       {
         id: uuidv4(),
         name,
@@ -44,8 +39,8 @@ export default function Home() {
 
   const deleteLink = ({ target }) => {
     const { id } = target;
-    const undeletedLinks = links?.filter((item) => !(item.id === id));
-    setLinks(undeletedLinks);
+    const undeletedLinks = cardLinks?.filter((item) => !(item.id === id));
+    setCardLinks(undeletedLinks);
   };
 
   const getStorageLinks = () => {
@@ -53,10 +48,17 @@ export default function Home() {
     const linksOnStore = dataParse(dataString);
 
     if (!linksOnStore) return;
-    setLinks(linksOnStore);
+    setCardLinks(linksOnStore);
   };
 
   useEffect(getStorageLinks, []);
+
+  useEffect(() => {
+    setAnimation(true);
+    setTimeout(() => {
+      setAnimation(false);
+    }, 2000);
+  }, [isAnimation]);
 
   return (
     <>
@@ -97,23 +99,25 @@ export default function Home() {
             </div>
             <S.div>
               <S.button type="submit">Insert</S.button>
-              <S.button type="button" onClick={() => saveLinksOnStorage(links)}>
+              <S.button
+                type="button"
+                onClick={() => saveLinksOnStorage(cardLinks)}>
                 Save
               </S.button>
             </S.div>
           </S.form>
-          <S.section>
-            {links[0] && <S.hr />}
-            {links.map((element) => (
-              <div className="container" key={element.id}>
+          <S.section isAnimation={isAnimation}>
+            {cardLinks[0] && <S.hr />}
+            {cardLinks.map((link) => (
+              <div className="container" key={link.id}>
                 <span>
-                  <a target="_blank" rel="noreferrer" href={element.link}>
-                    {element.name}
+                  <a target="_blank" rel="noreferrer" href={link.link}>
+                    {link.name}
                   </a>
-                  <button id={element.id} onClick={deleteLink}></button>
+                  <button id={link.id} onClick={deleteLink}></button>
                 </span>
                 <div className="added">
-                  <p>Added: {element.date}</p>
+                  <p>Added: {link.date}</p>
                 </div>
               </div>
             ))}

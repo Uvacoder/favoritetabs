@@ -1,4 +1,30 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const fadeInDown = keyframes`
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+`;
+
+const Pulse = keyframes`
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+`;
 
 const layout = styled.div`
   width: 100%;
@@ -82,6 +108,12 @@ const button = styled.button`
   &:hover {
     background: ${({ theme }) => theme.primaryHover};
   }
+  &.btn-active {
+    background: ${({ theme }) => theme.primary};
+  }
+  &.btn-inactive {
+    background: ${({ theme }) => theme.disabled};
+  }
 `;
 
 const div = styled.div`
@@ -91,7 +123,9 @@ const div = styled.div`
   justify-content: space-between;
 `;
 
-const section = styled.section`
+const section = styled.section.attrs((props) => {
+  console.log('PROOOOOOOOOOOOOPS', props);
+})`
   width: 100%;
   margin-top: 1rem;
 
@@ -103,7 +137,8 @@ const section = styled.section`
     border-left: 3px solid ${({ theme }) => theme.textLow};
     position: relative;
     margin-top: 2rem;
-
+    animation: ${fadeInDown} 1000ms both;
+    animation-iteration-count: 1;
     span {
       display: flex;
       justify-content: space-between;
@@ -117,6 +152,7 @@ const section = styled.section`
         transition: box-shadow 0.4s ease-in-out;
         &:hover {
           box-shadow: inset 0 -6px ${({ theme }) => theme.primaryHover};
+          animation: ${Pulse} 500ms both;
         }
       }
       button {
@@ -138,6 +174,7 @@ const section = styled.section`
         }
         &:hover {
           background: ${({ theme }) => theme.primaryHover};
+          animation: ${Pulse} 500ms both;
         }
       }
     }

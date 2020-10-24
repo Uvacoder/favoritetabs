@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { func, string } from 'prop-types';
 import React from 'react';
 
@@ -7,7 +8,7 @@ import * as S from './styles';
 function Header({ theme, toggleTheme }) {
   return (
     <S.header>
-      <h1>Favorite Tabs</h1>
+      <Link href="/">Favorite Tabs</Link>
       <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
     </S.header>
   );
