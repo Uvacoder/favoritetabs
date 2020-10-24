@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { useDarkMode } from '../hooks/useDarkMode';
 import { Header } from '../components/Header/Header';
 import { SEO } from '../components/Head/Head';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { lightTheme, darkTheme } from '../styles/theme/theme';
 import { GlobalStyles } from '../styles/global';

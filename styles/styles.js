@@ -4,6 +4,7 @@ const layout = styled.div`
   width: 100%;
   padding: 0 10px;
   height: 100vh;
+  position: relative;
   @media (min-width: 25em) {
     max-width: 90%;
     margin: 0 auto;

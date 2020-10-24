@@ -15,6 +15,7 @@ const darkTheme = {
   input: '#262d34',
   inputBackground: '#e8f0fe',
   error: '#972f3d',
+  toast: '#fff',
 };
 
 const lightTheme = {
@@ -34,6 +35,7 @@ const lightTheme = {
   input: '#1d2227',
   inputBackground: '#e4f4fe',
   error: '#b00020',
+  toast: '#262d34',
 };
 
 export { lightTheme, darkTheme };
