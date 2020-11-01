@@ -6,8 +6,8 @@ export const Background = styled.div`
   position: absolute;
   overflow: hidden;
   img {
-    min-width: 100vw !important;
-    max-height: 100vh !important;
+    min-width: 100vw;
+    max-height: 100vh;
   }
   svg {
     position: absolute;
