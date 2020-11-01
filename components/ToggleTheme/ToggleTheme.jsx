@@ -1,15 +1,16 @@
 import React from 'react';
-import { func, string } from 'prop-types';
 
-import { Button } from './styles';
+import { useTheme } from '../../context/useTheme';
 import MoonIcon from '../../public/icons/moon.svg';
 import SunIcon from '../../public/icons/sun.svg';
+import { Button } from './styles';
 
-function ThemeToggle({ theme, toggleTheme }) {
+function ToggleTheme() {
+  const { theme, setTheme } = useTheme();
   const isLight = theme === 'light';
 
   return (
-    <Button lightTheme={isLight} onClick={toggleTheme}>
+    <Button lightTheme={isLight} onClick={setTheme}>
       <img
         src={SunIcon}
         width="224"
@@ -28,9 +29,4 @@ function ThemeToggle({ theme, toggleTheme }) {
   );
 }
 
-ThemeToggle.propTypes = {
-  theme: string.isRequired,
-  toggleTheme: func.isRequired,
-};
-
-export { ThemeToggle };
+export { ToggleTheme };

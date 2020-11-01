@@ -2,7 +2,9 @@
 import { createGlobalStyle, keyframes } from 'styled-components';
 
 import Inter_Regular from '../fonts/Inter_Web/Inter-Regular.woff2';
-import Inter_SemiBold from '../fonts/Inter_Web/Inter-SemiBold.woff2';
+import PoppinsBlack from '../fonts/Poppins/Poppins-Black.ttf';
+import PoppinsBold from '../fonts/Poppins/Poppins-Bold.ttf';
+import PoppinsRegular from '../fonts/Poppins/Poppins-Regular.ttf';
 
 const fadeIn = keyframes`
   from {
@@ -27,8 +29,30 @@ const GlobalStyles = createGlobalStyle`
   }
 
   @font-face {
-    font-family: 'InterBold';
-    src: url(${Inter_SemiBold}) format('woff2')
+    font-family: 'Poppins-Regular';
+    src: url(${PoppinsRegular}) format('woff2');
+    src: url('${PoppinsRegular}?#iefix') format('embedded-opentype'),
+        url(${PoppinsRegular}) format('woff2'),
+        url(${PoppinsRegular}) format('woff'),
+        url(${PoppinsRegular}) format('truetype')
+  }
+
+  @font-face {
+    font-family: 'Poppins-Black';
+    src: url(${PoppinsBlack}) format('woff2');
+    src: url('${PoppinsBlack}?#iefix') format('embedded-opentype'),
+        url(${PoppinsBlack}) format('woff2'),
+        url(${PoppinsBlack}) format('woff'),
+        url(${PoppinsBlack}) format('truetype')
+  }
+
+  @font-face {
+    font-family: 'Poppins-Bold';
+    src: url(${PoppinsBold}) format('woff2');
+    src: url('${PoppinsBold}?#iefix') format('embedded-opentype'),
+        url(${PoppinsBold}) format('woff2'),
+        url(${PoppinsBold}) format('woff'),
+        url(${PoppinsBold}) format('truetype')
   }
 
   *,

@@ -1,3 +1,5 @@
+const fontTypes = `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`;
+
 const darkTheme = {
   body: '#1d2227',
   text: '#e0e0e0',
@@ -8,9 +10,13 @@ const darkTheme = {
   toggleBorder: '#6B8096',
   toggle: '#f1f1f1',
   title: '#df7296',
-  button: 'linear-gradient(90deg, rgba(255,0,204,1) 0%, rgba(51,51,153,1) 90%)',
-  fontPrimary: 'Inter',
-  fontSecondary: 'InterBold',
+  button_primary:
+    'linear-gradient(90deg, rgba(255,0,204,1) 0%, rgba(51,51,153,1) 90%)',
+  button_hover:
+    'linear-gradient(90deg, rgba(255,0,204,0.7) 0%, rgba(51,51,153,0.7) 90%)',
+  fontPrimary: `Inter, ${fontTypes}`,
+  fontSecondary: `InterBold, ${fontTypes}`,
+  Poppins_bold: `Poppins-Bold, ${fontTypes}`,
   borderShadow: 'rgba(250, 250, 250, 0.5)',
   box: '#262d34',
   input: '#262d34',
@@ -29,9 +35,13 @@ const lightTheme = {
   toggleBorder: '#FFF',
   toggle: '#262d34',
   title: '#c14c6f',
-  button: 'linear-gradient(90deg, rgba(255,0,204,1) 0%, rgba(51,51,153,1) 90%)',
-  fontPrimary: 'Inter',
-  fontSecondary: 'InterBold',
+  button_primary:
+    'linear-gradient(90deg, rgba(255,0,204,1) 0%, rgba(51,51,153,1) 90%)',
+  button_hover:
+    'linear-gradient(90deg, rgba(255,0,204,0.7) 0%, rgba(51,51,153,0.7) 90%)',
+  fontPrimary: `Inter, ${fontTypes}`,
+  fontSecondary: `InterBold, ${fontTypes}`,
+  Poppins_bold: `Poppins-Bold, ${fontTypes}`,
   borderShadow: 'rgba(0, 0, 0, 0.3)',
   box: '#efefef',
   input: '#1d2227',

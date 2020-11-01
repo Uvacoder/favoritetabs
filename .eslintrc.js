@@ -9,12 +9,7 @@ module.exports = {
     // 'plugin:prettier/recommended',
     // 'plugin:react-hooks/recommended',
     // 'prettier',
-    'prettier/react',
     // 'eslint:recommended',
-    'plugin:prettier/recommended',
-    'prettier/flowtype',
-    'prettier/react',
-    'prettier/standard',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -24,7 +19,7 @@ module.exports = {
     sourceType: 'module',
   },
   /* 'jest' */
-  plugins: ['react', 'react-hooks', 'prettier'],
+  plugins: ['react', 'react-hooks'],
   rules: {
     radix: 'error',
     'no-self-compare': 'error',
@@ -32,7 +27,10 @@ module.exports = {
     indent: ['error', 2],
     'no-compare-neg-zero': 'error',
     'no-dupe-else-if': 'error',
-    'no-irregular-whitespace': ['error', { skipTemplates: true }],
+    'no-irregular-whitespace': [
+      'error',
+      { skipTemplates: true },
+    ],
     'array-callback-return': 'error',
     'operator-linebreak': [
       'error',
@@ -124,19 +122,13 @@ module.exports = {
     ],
     treatUndefinedAsUnspecified: 'off',
     eqeqeq: ['error', 'smart'],
-    'prettier/prettier': [
-      'error',
-      {},
-      {
-        usePrettierrc: true,
-      },
-    ],
     'class-methods-use-this': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     'typescript-eslint/interface-name-prefix': 'off',
     'typescript-eslint/no-vars-requires': 'off',
     'typescript-eslint/camelcase': 'off',
-    'typescript-eslint/explicit-function-return-type': 'off',
+    'typescript-eslint/explicit-function-return-type':
+      'off',
     'react/jsx-curly-newline': 'off',
     'react/jsx-filename-extension': [
       'warn',
