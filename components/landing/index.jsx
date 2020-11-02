@@ -5,7 +5,7 @@ import Logo from '../../public/background/logo.svg';
 import Background from '../../public/background/vincentiu-solomon-ln5drpv_ImI-unsplash@3x.jpg';
 import * as S from './_styles';
 
-function Landing() {
+export default function Landing() {
   return (
     <>
       <S.Background>
@@ -57,5 +57,3 @@ function Landing() {
     </>
   );
 }
-
-export { Landing };
