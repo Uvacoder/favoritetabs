@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Background = styled.div`
   max-width: 100vw;
   max-height: 100vh;
+  height: 100vh;
   position: absolute;
   overflow: hidden;
   img {
@@ -30,13 +31,14 @@ export const Container = styled.div`
   grid-template-areas: 'main' 'footer';
   align-content: space-between;
   min-height: 100vh;
+  height: 100vh;
 
   right: 0;
   left: 0;
 
-   @media screen and (max-width: 690px) {
-     padding: 0 10px;
-   }
+  @media screen and (max-width: 690px) {
+    padding: 0 10px;
+  }
 `;
 
 export const Main = styled.div`
@@ -76,8 +78,8 @@ export const Main = styled.div`
     margin: 5rem 0 0 0;
 
     p {
-      letter-spacing: 2px;
-      max-width: 60%;
+      letter-spacing: 1px;
+      max-width: 90%;
       font-size: clamp(0.8rem, 2vw, 1.2rem);
     }
   }
@@ -89,6 +91,9 @@ export const Main = styled.div`
     .welcome, .go-app {
       align-items: center;
       justify-content: center;
+    }
+    .welcome h1 span {
+      box-shadow: none;
     }
   }
 `;
