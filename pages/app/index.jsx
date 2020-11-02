@@ -7,7 +7,7 @@ import { showToast } from '../../components/ToastAnimated';
 import { ToastContainerStyle } from '../../components/ToastAnimated/styles';
 import Trash from '../../public/icons8-trash.svg';
 import { dataParse, dataSaveOnStorage, dataStringfy, getFormatedDate, getItemOnStorage } from '../../utils/date';
-import * as S from './_styles';
+import * as S from './styles';
 
 export default function Home() {
   const [cardLinks, setCardLinks] = useState([]);
