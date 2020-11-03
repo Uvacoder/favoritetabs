@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useTheme } from '../../context/useTheme';
 import MoonIcon from '../../public/icons/moon.svg';
 import SunIcon from '../../public/icons/sun.svg';

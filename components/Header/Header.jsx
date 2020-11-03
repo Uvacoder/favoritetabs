@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import React from 'react';
 
 import { ToggleTheme } from '../ToggleTheme/ToggleTheme';
 import * as S from './styles';

@@ -12,10 +12,10 @@
     "next-fonts": "^1.4.0",
     "nextjs": "^0.0.3",
     "prop-types": "^15.7.2",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
     "react-hook-form": "^6.8.2",
-    "react-is": "^16.13.1",
+    "react-is": "^17.0.1",
     "react-toastify": "^6.0.9",
     "styled-components": "^5.2.0",
     "uuid": "^8.3.0"

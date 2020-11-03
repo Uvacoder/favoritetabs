@@ -1,7 +1,6 @@
 import 'react-toastify/dist/ReactToastify.css';
 
 import PropTypes from 'prop-types';
-import React from 'react';
 
 import ThemeContextProvider from '../context/useTheme';
 import { GlobalStyles } from '../styles/global';

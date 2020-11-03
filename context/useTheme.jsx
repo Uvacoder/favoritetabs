@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { createContext, useContext } from 'react';
+import { createContext, useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import { useDarkMode } from '../hooks/useDarkMode';

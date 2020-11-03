@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import React from 'react';
 
 import Logo from '../../public/background/logo.svg';
 import * as S from './_styles';

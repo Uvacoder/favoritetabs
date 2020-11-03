@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 
 import Trash from '../../public/icons8-trash.svg';
 import * as S from './styles';

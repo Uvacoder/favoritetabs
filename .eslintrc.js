@@ -21,16 +21,14 @@ module.exports = {
   /* 'jest' */
   plugins: ['react', 'react-hooks'],
   rules: {
+    'react/react-in-jsx-scope': 'off',
     radix: 'error',
     'no-self-compare': 'error',
     'implicit-arrow-linebreak': ['error', 'beside'],
     indent: ['error', 2],
     'no-compare-neg-zero': 'error',
     'no-dupe-else-if': 'error',
-    'no-irregular-whitespace': [
-      'error',
-      { skipTemplates: true },
-    ],
+    'no-irregular-whitespace': ['error', { skipTemplates: true }],
     'array-callback-return': 'error',
     'operator-linebreak': [
       'error',
@@ -127,8 +125,7 @@ module.exports = {
     'typescript-eslint/interface-name-prefix': 'off',
     'typescript-eslint/no-vars-requires': 'off',
     'typescript-eslint/camelcase': 'off',
-    'typescript-eslint/explicit-function-return-type':
-      'off',
+    'typescript-eslint/explicit-function-return-type': 'off',
     'react/jsx-curly-newline': 'off',
     'react/jsx-filename-extension': [
       'warn',
@@ -150,7 +147,7 @@ module.exports = {
         indentLogicalExpressions: true,
       },
     ],
-    'react-hooks/exhaustive-deps': 'warn',
+    'react-hooks/exhaustive-deps': 'error',
     'import/no-extraneous-dependencies': [
       'off',
       {
