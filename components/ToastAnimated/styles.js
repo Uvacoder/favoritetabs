@@ -8,7 +8,7 @@ const ToastContainerStyle = styled(ToastContainer)`
     color: #222;
   }
   .Toastify__progress-bar {
-    background: ${({ theme }) => theme.button};
+    background: ${({ theme }) => theme.button_primary};
   }
   .Toastify__toast-body {
     color: ${({ theme }) => theme.body};

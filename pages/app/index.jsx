@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 
 import { Header } from '../../components/Header/Header';
 import { showToast } from '../../components/ToastAnimated';
 import { ToastContainerStyle } from '../../components/ToastAnimated/styles';
-import Trash from '../../public/icons8-trash.svg';
+import { useLocalStorage } from '../../hooks/UseLocalStorage/useLocalStorage';
 import * as S from '../../styles/app/styles';
-import { dataParse, dataSaveOnStorage, dataStringfy, getFormatedDate, getItemOnStorage } from '../../utils/date';
+import { getFormatedDate } from '../../utils/date';
 
+const CardLinks = lazy(() => import('../../components/CardLinks'));
 export default function Home() {
   const [cardLinks, setCardLinks] = useState([]);
+  const [state, setSate] = useLocalStorage('links', cardLinks);
+
   const {
     register,
     handleSubmit,
@@ -19,18 +22,19 @@ export default function Home() {
   } = useForm();
 
   const saveLinksOnStorage = (links = cardLinks) => {
-    const data = dataStringfy(links);
-    dataSaveOnStorage(data);
+    setSate(links);
 
     showToast('The links have been saved!');
   };
 
-  const onSubmit = async (data, event) => {
+  const handleFormSubmit = async (data, event) => {
     event.preventDefault();
     event.stopPropagation();
 
     const { name, link } = await data;
+    
     const date = getFormatedDate();
+    
     setCardLinks([
       ...cardLinks,
       {
@@ -40,26 +44,18 @@ export default function Home() {
         date,
       },
     ]);
+    
     reset();
   };
 
   const deleteLink = ({ target }) => {
-    const { id } = target;
-    const undeletedLinks = cardLinks?.filter(
-      (item) => !(item.id === id),
-    );
-    setCardLinks(undeletedLinks);
+    const updatedLinks = cardLinks?.filter((item) => !(item?.id === target?.id));
+    setCardLinks(updatedLinks);
   };
 
-  const getStorageLinks = () => {
-    const dataString = getItemOnStorage('links');
-    const linksOnStore = dataParse(dataString);
+  const getStoredLinks = () => setCardLinks(state);
 
-    if (!linksOnStore) return;
-    setCardLinks(linksOnStore);
-  };
-
-  useEffect(getStorageLinks, []);
+  useEffect(getStoredLinks, [state]);
 
   return (
     <S.Layout>
@@ -68,7 +64,7 @@ export default function Home() {
       <ToastContainerStyle />
 
       <S.Main>
-        <S.Form onSubmit={handleSubmit(onSubmit)}>
+        <S.Form onSubmit={handleSubmit(handleFormSubmit)}>
           <div className="input-container">
             <label name="name" id="name">
               Name
@@ -84,9 +80,7 @@ export default function Home() {
               })}
             />
             {errors.name && (
-              <S.Error>
-                This field is required and max length is 50
-              </S.Error>
+              <S.Error>This field is required and max length is 50</S.Error>
             )}
           </div>
           <div className="input-container">
@@ -104,9 +98,7 @@ export default function Home() {
               })}
             />
             {errors.link && (
-              <S.Error>
-                This field is required and min length is 5
-              </S.Error>
+              <S.Error>This field is required and min length is 5</S.Error>
             )}
           </div>
 
@@ -120,30 +112,9 @@ export default function Home() {
           </S.ContainerFormButtons>
         </S.Form>
 
-        <S.CardLinks>
-          {cardLinks[0] && <S.HR />}
-          {cardLinks.map((link) => (
-            <div className="container" key={link.id}>
-              <span>
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href={link.link}>
-                  {link.name}
-                </a>
-                <img
-                  id={link.id}
-                  onClick={deleteLink}
-                  src={Trash}
-                  alt="delete link"
-                />
-              </span>
-              <div className="added">
-                <p>Added: {link.date}</p>
-              </div>
-            </div>
-          ))}
-        </S.CardLinks>
+        <Suspense fallback={<strong>Loading...</strong>}>
+          <CardLinks cardLinks={cardLinks} deleteLink={deleteLink} />
+        </Suspense>
       </S.Main>
 
       <S.Footer />

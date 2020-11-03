@@ -50,13 +50,13 @@ const Container = styled.section`
   }
   p {
     display: inline;
-    font-family: ${({ theme }) => theme.fontSecondary};
+    font-family: InterBold -apple-system, Roboto, Ubuntu, Cantarell, sans-serif;
     font-size: clamp(20px, 3vw, 2.5rem);
     color: #c14c6f;
     animation: ${fadeInRight} 700ms ease-in-out both;
   }
   a {
-    font-family: ${({ theme }) => theme.fontSecondary};
+    font-family: InterBold -apple-system, Roboto, Ubuntu, Cantarell, sans-serif;
     font-size: clamp(15px, 2vw, 1.5rem);
     color: ${({ theme }) => theme.primary};
     transition: all 0.3s ease;

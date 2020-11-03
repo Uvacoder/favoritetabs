@@ -10,8 +10,7 @@ const getFormatedDate = () => {
 };
 
 const dataStringfy = (links) => JSON.stringify(links);
-const dataSaveOnStorage = (links) =>
-  window.localStorage.setItem('links', links);
+const dataSaveOnStorage = (links) => window.localStorage.setItem('links', links);
 
 const dataParse = (links) => JSON.parse(links);
 const getItemOnStorage = (keyword) => window.localStorage.getItem(keyword);

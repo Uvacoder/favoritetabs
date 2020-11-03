@@ -4,8 +4,11 @@
   ],
   "plugins": [
     [
-      "styled-components",
+      "babel-plugin-styled-components",
       {
+        "minify": true,
+        "transpileTemplateLiterals": true,
+        "pure": true,
         "ssr": true,
         "displayName": true,
         "preprocess": false

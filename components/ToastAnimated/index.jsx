@@ -1,5 +1,6 @@
 import React from 'react';
 import { toast } from 'react-toastify';
+
 import Success from '../../public/success-svgrepo-com.svg';
 import { Container, Icon } from './styles';
 

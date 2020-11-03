@@ -16,7 +16,7 @@ const darkTheme = {
     'linear-gradient(90deg, rgba(255,0,204,0.7) 0%, rgba(51,51,153,0.7) 90%)',
   fontPrimary: `Inter, ${fontTypes}`,
   fontSecondary: `InterBold, ${fontTypes}`,
-  Poppins_bold: `Poppins-Bold, ${fontTypes}`,
+  Poppins_bold: `Poppins_Bold, ${fontTypes}`,
   borderShadow: 'rgba(250, 250, 250, 0.5)',
   box: '#262d34',
   input: '#262d34',

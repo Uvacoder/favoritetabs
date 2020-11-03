@@ -7,7 +7,6 @@ import ThemeContextProvider from '../context/useTheme';
 import { GlobalStyles } from '../styles/global';
 
 function App({ Component, pageProps }) {
-  console.log(pageProps);
   return (
     <ThemeContextProvider>
       <GlobalStyles />

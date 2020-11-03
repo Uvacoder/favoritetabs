@@ -27,12 +27,12 @@ const Container = styled.div`
     position: absolute;
     right: 10px;
     top: 0px;
-    font-family: ${({ theme }) => theme.fontSecondary};
+    font-family: 'InterBold', -apple-system, Roboto, Ubuntu, Cantarell, sans-serif;
     cursor: pointer;
   }
   span {
     color: #fefefe;
-    font-family: ${({ theme }) => theme.fontPrimary};
+    font-family: 'Inter', -apple-system, Roboto, Ubuntu, Cantarell, sans-serif;
   }
 `;
 

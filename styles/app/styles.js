@@ -1,31 +1,5 @@
 import styled, { keyframes } from 'styled-components';
 
-const fadeInDown = keyframes`
-  from {
-    opacity: 0;
-    transform: translate3d(0, -100%, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-`;
-
-const Pulse = keyframes`
-  from {
-    transform: scale3d(1, 1, 1);
-  }
-
-  50% {
-    transform: scale3d(1.05, 1.05, 1.05);
-  }
-
-  to {
-    transform: scale3d(1, 1, 1);
-  }
-`;
-
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -33,85 +7,6 @@ const fadeIn = keyframes`
 
   to {
     opacity: 1;
-  }
-`;
-
-const bounceIn = keyframes`
-  from,
-  20%,
-  40%,
-  60%,
-  80%,
-  to {
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-
-  0% {
-    opacity: 0;
-    transform: scale3d(0.3, 0.3, 0.3);
-  }
-
-  20% {
-    transform: scale3d(1.1, 1.1, 1.1);
-  }
-
-  40% {
-    transform: scale3d(0.9, 0.9, 0.9);
-  }
-
-  60% {
-    opacity: 1;
-    transform: scale3d(1.03, 1.03, 1.03);
-  }
-
-  80% {
-    transform: scale3d(0.97, 0.97, 0.97);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale3d(1, 1, 1);
-  }
-`;
-
-const zoomIn = keyframes`
-  from {
-    opacity: 0;
-    transform: scale3d(0.3, 0.3, 0.3);
-  }
-
-  50% {
-    opacity: 1;
-  }
-`;
-
-const rubberBand = keyframes`
-  from {
-    transform: scale3d(1, 1, 1);
-  }
-
-  30% {
-    transform: scale3d(1.25, 0.75, 1);
-  }
-
-  40% {
-    transform: scale3d(0.75, 1.25, 1);
-  }
-
-  50% {
-    transform: scale3d(1.15, 0.85, 1);
-  }
-
-  65% {
-    transform: scale3d(0.95, 1.05, 1);
-  }
-
-  75% {
-    transform: scale3d(1.05, 0.95, 1);
-  }
-
-  to {
-    transform: scale3d(1, 1, 1);
   }
 `;
 
@@ -157,7 +52,7 @@ export const Form = styled.form`
   label {
     display: block;
     color: ${({ theme }) => theme.font};
-    font-family: ${({ theme }) => theme.fontSecondary};
+    font-family: 'Inter', -apple-system, Roboto, Ubuntu, Cantarell, sans-serif;
     margin: 0 0 10px 0;
     width: 100%;
     font-size: clamp(14px, 1rem, 2vw);
@@ -174,7 +69,7 @@ export const Form = styled.form`
     width: 100%;
     background: ${({ theme }) => theme.inputBackground};
     color: ${({ theme }) => theme.input};
-    font-family: ${({ theme }) => theme.fontPrimary};
+    font-family: 'Inter', -apple-system, Roboto, Ubuntu, Cantarell, sans-serif;
     font-size: clamp(12px, 2vw, 0.8rem);
     &::placeholder {
       color: ${({ theme }) => theme.textLow};
@@ -192,17 +87,11 @@ export const Button = styled.button`
   cursor: pointer;
   transition: background 0.4s ease-in-out;
   background: ${({ theme }) => theme.primary};
-  font-family: ${({ theme }) => theme.fontSecondary};
+  font-family: 'InterBold', -apple-system, Roboto, Ubuntu, Cantarell, sans-serif;
   color: #fefefe;
   animation: ${fadeIn} 1000ms both;
   &:hover {
     background: ${({ theme }) => theme.primaryHover};
-  }
-  &.btn-active {
-    background: ${({ theme }) => theme.primary};
-  }
-  &.btn-inactive {
-    background: ${({ theme }) => theme.disabled};
   }
 `;
 
@@ -213,78 +102,11 @@ export const ContainerFormButtons = styled.div`
   justify-content: space-between;
 `;
 
-export const CardLinks = styled.section`
-  width: 100%;
-  margin-top: 1rem;
-
-  .container {
-    background: ${({ theme }) => theme.box};
-    width: 100%;
-    height: max-content;
-    padding: 10px 0 0 10px;
-    border-left: 3px solid ${({ theme }) => theme.textLow};
-    position: relative;
-    margin-top: 2rem;
-    animation: ${fadeInDown} 1000ms both;
-    animation-iteration-count: 1;
-    span {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-      a {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        box-shadow: inset 0 -6px ${({ theme }) => theme.primary};
-        font-family: ${({ theme }) => theme.fontSecondary};
-        transition: box-shadow 0.4s ease-in-out;
-        &:hover {
-          box-shadow: inset 0 -6px ${({ theme }) => theme.primaryHover};
-          animation: ${Pulse} 500ms both;
-        }
-      }
-      img {
-        display: block;
-        position: absolute;
-        top: 15px;
-        right: 0;
-        margin-right: 10px;
-        outline: 0;
-        border: 0;
-        cursor: pointer;
-        background: rgba(0, 0, 0, 0);
-        &:hover {
-          animation: ${rubberBand} 1000ms backwards;
-          transform-style: preserve-3d;
-        }
-      }
-    }
-    .added {
-      display: flex;
-      align-items: center;
-      padding-bottom: 10px;
-      p {
-        font-size: clamp(10px, 2vw, 0.6rem);
-        font-family: ${({ theme }) => theme.fontSecondary};
-        margin-right: 10px;
-      }
-    }
-  }
-`;
-
-export const HR = styled.hr`
-  background: ${({ theme }) => theme.text};
-  color: ${({ theme }) => theme.text};
-  height: 1px;
-  border: none;
-  opacity: 0.2;
-  animation: ${zoomIn} 1000ms both;
-`;
 
 export const Error = styled.span`
   display: block;
   font-size: clamp(12px, 2vw, 0.8rem);
-  font-family: ${({ theme }) => theme.fontPrimary};
+  font-family: 'Inter', -apple-system, Roboto, Ubuntu, Cantarell, sans-serif;
   color: ${({ theme }) => theme.title};
   animation: ${fadeIn} 1000ms both;
 `;

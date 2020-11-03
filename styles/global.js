@@ -1,22 +1,9 @@
-/* eslint-disable max-len */
-import { createGlobalStyle, keyframes } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 import Inter_Regular from '../fonts/Inter_Web/Inter-Regular.woff2';
 import PoppinsBlack from '../fonts/Poppins/Poppins-Black.ttf';
 import PoppinsBold from '../fonts/Poppins/Poppins-Bold.ttf';
 import PoppinsRegular from '../fonts/Poppins/Poppins-Regular.ttf';
-
-const fadeIn = keyframes`
-  from {
-    transform: scale(100);
-    opacity: 0;
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-`;
 
 const GlobalStyles = createGlobalStyle`
    @font-face {
@@ -29,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   @font-face {
-    font-family: 'Poppins-Regular';
+    font-family: 'Poppins_Regular';
     src: url(${PoppinsRegular}) format('woff2');
     src: url('${PoppinsRegular}?#iefix') format('embedded-opentype'),
         url(${PoppinsRegular}) format('woff2'),
@@ -38,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   @font-face {
-    font-family: 'Poppins-Black';
+    font-family: 'Poppins_Black';
     src: url(${PoppinsBlack}) format('woff2');
     src: url('${PoppinsBlack}?#iefix') format('embedded-opentype'),
         url(${PoppinsBlack}) format('woff2'),
@@ -47,7 +34,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   @font-face {
-    font-family: 'Poppins-Bold';
+    font-family: 'Poppins_Bold';
     src: url(${PoppinsBold}) format('woff2');
     src: url('${PoppinsBold}?#iefix') format('embedded-opentype'),
         url(${PoppinsBold}) format('woff2'),
@@ -74,9 +61,7 @@ const GlobalStyles = createGlobalStyle`
     width: 100%;
     margin: 0;
     padding: 0;
-    transition: background 0.3s ease-in;
-    -webkit-font-smoothing: antialiased;
-    animation: ${fadeIn}
+    transition: all .4s ease;
   }
   a {
     color: inherit;
