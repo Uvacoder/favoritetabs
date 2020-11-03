@@ -3,8 +3,11 @@ import styled from 'styled-components';
 export const Background = styled.div`
   background: #f2f2f2;
   margin: 0 auto;
+  min-height: 100vh;
   flex: 1;
-  transition: all 0.3s ease-out;
+  position: fixed;
+  min-width: 100vw;
+  width: 100vw;
   .wave {
     position: fixed;
     width: 100vw;
