@@ -34,7 +34,7 @@ export const Layout = styled.div`
 `;
 
 export const Main = styled.main`
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   width: 100%;
   min-height: 81vh;
   flex: 1;
