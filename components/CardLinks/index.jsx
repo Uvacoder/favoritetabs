@@ -4,10 +4,11 @@ import Trash from '../../public/icons8-trash.svg';
 import * as S from './styles';
 
 const CardLinks = ({ cardLinks = [], deleteLink }) => {
+  console.log(cardLinks)
   return (
     <S.CardLinks>
       {cardLinks[0] && <S.HR />}
-      {cardLinks.map((link) => (
+      {cardLinks[0] && cardLinks.map((link) => (
         <div className="container" key={link.id}>
           <span>
             <a target="_blank" rel="noreferrer" href={link.link}>

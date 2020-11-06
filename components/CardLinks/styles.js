@@ -121,7 +121,7 @@ export const CardLinks = styled.section`
       padding-bottom: 10px;
       p {
         font-size: clamp(10px, 2vw, 0.6rem);
-        font-family: 'Poppins_Regular', -apple-system, Roboto, Ubuntu, Cantarell,
+        font-family: 'Poppins_Bold', -apple-system, Roboto, Ubuntu, Cantarell,
           sans-serif;
         margin-right: 10px;
       }

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import Logo from '../../public/background/logo.svg';
-import * as S from './_styles';
+import * as S from './styles';
 
 export default function Landing() {
   return (

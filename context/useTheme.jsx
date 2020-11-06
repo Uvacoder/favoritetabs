@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { createContext, useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { useDarkMode } from '../hooks/useDarkMode';
+import { useDarkMode } from '../hooks/UseDarkMode/useDarkMode';
 import { darkTheme, lightTheme } from '../styles/theme/theme';
 
 const ThemeContext = createContext();
@@ -24,7 +24,7 @@ export default function ThemeContextProvider({ children }) {
 
 export const useTheme = () => {
   const { theme, setTheme } = useContext(ThemeContext);
-  return { theme, setTheme };
+  return [theme, setTheme];
 };
 
 ThemeContextProvider.propTypes = {

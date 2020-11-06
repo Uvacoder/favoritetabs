@@ -1,20 +1,36 @@
+import { useState } from 'react';
+
 import { useTheme } from '../../context/useTheme';
 import MoonIcon from '../../public/icons/moon-outline.svg';
 import SunIcon from '../../public/icons/sun-outline.svg';
-import { Icon } from './styles';
+import { Container } from './styles';
 
 function ToggleTheme() {
-  const { theme, setTheme } = useTheme();
-  const isLight = theme === 'light';
+  const [theme, setTheme] = useTheme();
+  const [active, setActive] = useState(theme);
+
+  function handleClick() {
+    setTheme();
+    return active === 'light'
+      ? setActive('dark')
+      : setActive('light');
+  }
 
   return (
-    <Icon
-      ightTheme={isLight}
-      onClick={setTheme}
-      src={isLight ? MoonIcon : SunIcon}
-      alt="Sun free icon"
-      title="Sun free icon"
-    />
+    <Container>
+      <img
+        onClick={handleClick}
+        src={SunIcon}
+        alt="Sun icon"
+        className={active}
+      />
+      <img
+        onClick={handleClick}
+        src={MoonIcon}
+        alt="Moon icon"
+        className={active === 'light' ? 'dark' : 'light'}
+      />
+    </Container>
   );
 }
 

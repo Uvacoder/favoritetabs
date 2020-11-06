@@ -1,4 +1,4 @@
-const { useState, useEffect, useDebugValue } = require("react");
+import { useEffect, useState } from 'react';
 
 const useLocalStorage = (key = '', initialValue = '') => {
   const [state, setState] = useState(() => {
