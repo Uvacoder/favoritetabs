@@ -14,6 +14,9 @@ const header = styled.header`
     font-weight: bolder;
     color: ${({ theme }) => theme.title};
   }
+  @media screen and (min-width: 1280px) {
+    max-width:100%;
+  }
 `;
 
 export { header };

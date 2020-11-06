@@ -82,6 +82,7 @@ export const CardLinks = styled.section`
     margin-top: 2rem;
     animation: ${fadeInDown} 400ms both;
     animation-iteration-count: 1;
+
     span {
       display: flex;
       justify-content: space-between;
@@ -120,11 +121,14 @@ export const CardLinks = styled.section`
       align-items: center;
       padding-bottom: 10px;
       p {
-        font-size: clamp(10px, 2vw, 0.6rem);
-        font-family: 'Poppins_Bold', -apple-system, Roboto, Ubuntu, Cantarell,
+        font-size: clamp(10px, 2vw, 0.7rem);
+        font-family: 'Poppins_Regular', -apple-system, Roboto, Ubuntu, Cantarell,
           sans-serif;
         margin-right: 10px;
       }
+    }
+    @media screen and (min-width: 1280px) {
+      max-width: 35vw;
     }
   }
 `;

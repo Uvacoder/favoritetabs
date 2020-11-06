@@ -11,25 +11,14 @@ const fadeIn = keyframes`
 `;
 
 export const Layout = styled.div`
-  width: 100vw;
+  max-width: 100vw;
   padding: 0 10px;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
-  @media (min-width: 25em) {
-    max-width: 90%;
-    margin: 0 auto;
-  }
-  @media (min-width: 43.75em) {
-    max-width: 70%;
-    margin: 0 auto;
-  }
-  @media (min-width: 56.25em) {
-    max-width: 60%;
-    margin: 0 auto;
-  }
-  @media (min-width: 75em) and (max-width: 486.063em) {
-    max-width: 35rem;
-    margin: 0 auto;
+  @media screen and (min-width: 1280px) {
+    display: grid;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -37,9 +26,33 @@ export const Main = styled.main`
   margin-top: 1.5rem;
   width: 100%;
   min-height: 81vh;
-  flex: 1;
   display: flex;
   flex-flow: column wrap;
+
+  @media screen and (min-width: 1280px) {
+    width: 100vw;
+    max-width: 90vw;
+    display: grid;
+    gap: 0 60px;
+    grid-template-columns: 1fr 1.5fr;
+    min-height: 100vh;
+  }
+  @media screen and (min-width: 454px) {
+    padding: 0 20px;
+    margin: 1.5rem auto;
+  }
+  @media screen and (min-width: 507px) and (max-width: 648px) {
+    max-width: 90%;
+    margin: 1.5rem auto;
+  }
+  @media screen and (min-width: 649px) and (max-width: 809px) {
+    max-width: 70%;
+    margin: 1.5rem auto;
+  }
+  @media screen and (min-width: 809px) and (max-width: 1279px) {
+    max-width: 30rem;
+    margin: 1.5rem auto;
+  }
 `;
 
 export const Form = styled.form`
@@ -75,6 +88,10 @@ export const Form = styled.form`
       color: ${({ theme }) => theme.textLow};
     }
   }
+  @media screen and (min-width: 1280px) {
+    place-content: start;
+    max-width: 80%;
+  }
 `;
 
 export const Button = styled.button`
@@ -82,16 +99,17 @@ export const Button = styled.button`
   border: none;
   outline: none;
   padding: 15px 5px;
-  border-radius: 8px;
+  border-radius: 4px;
   width: 45%;
   cursor: pointer;
   transition: background 0.4s ease-in-out;
-  background: ${({ theme }) => theme.primary};
+  background: ${({ theme }) => theme.primaryHover};
   font-family: 'InterBold', -apple-system, Roboto, Ubuntu, Cantarell, sans-serif;
   color: #fefefe;
   animation: ${fadeIn} 1000ms both;
+  position: relative;
   &:hover {
-    background: ${({ theme }) => theme.primaryHover};
+    background: ${({ theme }) => theme.primary};
   }
 `;
 
