@@ -53,6 +53,10 @@ export const Main = styled.main`
     max-width: 30rem;
     margin: 1.5rem auto;
   }
+  @media screen and (min-width: 7476px) {
+    max-width: 40%;
+    margin: 1.5rem auto;
+  }
 `;
 
 export const Form = styled.form`

@@ -4,7 +4,7 @@ import Trash from '../../public/icons8-trash.svg';
 import * as S from './styles';
 
 const CardLinks = ({ cardLinks = [], deleteLink }) => {
-  console.log(cardLinks)
+  console.log('re-render CardLinks');
   return (
     <S.CardLinks>
       {cardLinks[0] && <S.HR />}

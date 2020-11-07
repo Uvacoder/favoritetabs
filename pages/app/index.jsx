@@ -1,8 +1,8 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { lazy, memo, Suspense, useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 
-import { Header } from '../../components/Header/Header';
+import Header from '../../components/Header/Header';
 import { showToast } from '../../components/ToastAnimated';
 import { ToastContainerStyle } from '../../components/ToastAnimated/styles';
 import { useLocalStorage } from '../../hooks/UseLocalStorage/useLocalStorage';
@@ -10,7 +10,8 @@ import * as S from '../../styles/app/styles';
 import { getFormatedDate } from '../../utils/date';
 
 const CardLinks = lazy(() => import('../../components/CardLinks'));
-export default function Home() {
+function Home() {
+  console.log('re-render home');
   const [cardLinks, setCardLinks] = useState([]);
   const [state, setSate] = useLocalStorage('links', cardLinks);
 
@@ -21,29 +22,21 @@ export default function Home() {
     reset,
   } = useForm();
 
-  const saveLinksOnStorage = (links = cardLinks) => {
-    setSate(links);
-
-    showToast('The links have been saved!');
-  };
+  const saveLinksOnStorage = useCallback(
+    (links = []) => {
+      setSate(links);
+      showToast('The links have been saved!');
+    },
+    [setSate]
+  );
 
   const handleFormSubmit = async (data, event) => {
     event.preventDefault();
-    event.stopPropagation();
 
     const { name, link } = await data;
-    
     const date = getFormatedDate();
     
-    setCardLinks([
-      ...cardLinks,
-      {
-        id: uuidv4(),
-        name,
-        link,
-        date,
-      },
-    ]);
+    setCardLinks((links) => [...links, { id: uuidv4(), name, link, date }]);
     
     reset();
   };
@@ -121,3 +114,5 @@ export default function Home() {
     </S.Layout>
   );
 }
+
+export default Home;
