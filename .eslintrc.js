@@ -6,10 +6,10 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    // 'plugin:prettier/recommended',
-    // 'plugin:react-hooks/recommended',
-    // 'prettier',
-    // 'eslint:recommended',
+    'plugin:prettier/recommended',
+    'plugin:react-hooks/recommended',
+    'prettier',
+    'eslint:recommended',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -21,6 +21,7 @@ module.exports = {
   /* 'jest' */
   plugins: ['react', 'react-hooks'],
   rules: {
+    beforeSelfClosing: 'always',
     'react/react-in-jsx-scope': 'off',
     radix: 'error',
     'no-self-compare': 'error',

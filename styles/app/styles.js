@@ -109,6 +109,7 @@ export const Button = styled.button`
   transition: background 0.4s ease-in-out;
   background: ${({ theme }) => theme.primaryHover};
   font-family: 'InterBold', -apple-system, Roboto, Ubuntu, Cantarell, sans-serif;
+  font-size: clamp(13px, 1.5vw, 0.9rem);
   color: #fefefe;
   animation: ${fadeIn} 1000ms both;
   position: relative;
@@ -122,6 +123,7 @@ export const ContainerFormButtons = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 
@@ -135,4 +137,23 @@ export const Error = styled.span`
 
 export const Footer = styled.header`
   height: 2rem;
+`;
+
+export const Download = styled.a`
+  font-family: 'Inter', -apple-system, Roboto, Ubuntu, Cantarell, sans-serif;
+  font-size: clamp(13px, 1.5vw, 0.9rem);
+  background: ${({ theme }) => theme.primaryHover};
+  max-width: 45%;
+  width: 45%;
+  padding: 15px 5px;
+  border-radius: 4px;
+  height: min-content;
+  cursor: pointer;
+  color: #fefefe;
+  text-align: center;
+  transition: background 0.4s ease-in-out;
+  animation: ${fadeIn} 1000ms both;
+  &:hover {
+    background: ${({ theme }) => theme.primary};
+  }
 `;

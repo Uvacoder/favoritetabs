@@ -1,4 +1,4 @@
-import { lazy, memo, Suspense, useCallback, useEffect, useState } from 'react';
+import { lazy, memo, Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -10,10 +10,9 @@ import * as S from '../../styles/app/styles';
 import { getFormatedDate } from '../../utils/date';
 
 const CardLinks = lazy(() => import('../../components/CardLinks'));
+
 function Home() {
-  console.log('re-render home');
-  const [cardLinks, setCardLinks] = useState([]);
-  const [state, setSate] = useLocalStorage('links', cardLinks);
+  const [cardLinks, setCardLinks] = useLocalStorage('links', []);
 
   const {
     register,
@@ -22,33 +21,39 @@ function Home() {
     reset,
   } = useForm();
 
-  const saveLinksOnStorage = useCallback(
-    (links = []) => {
-      setSate(links);
-      showToast('The links have been saved!');
+  const saveLinksOnStorage = () => showToast('The links have been saved!');
+
+  const handleFormSubmit = useCallback((data, event) => {
+    (async () => {
+      event.preventDefault();
+      const { name, link } = await data;
+      const date = getFormatedDate();
+      
+      setCardLinks((links) => [...links, { id: uuidv4(), name, link, date }]);
+      
+      reset();
+    })()
+  }, [reset]);
+
+  const deleteLink = useCallback(
+    ({ target }) => {
+      const updatedLinks = cardLinks?.filter(
+        (item) => !(item?.id === target?.id)
+      );
+      setCardLinks(updatedLinks);
     },
-    [setSate]
+    [cardLinks]
   );
 
-  const handleFormSubmit = async (data, event) => {
-    event.preventDefault();
+  const downloadLinks = useRef(null)
 
-    const { name, link } = await data;
-    const date = getFormatedDate();
-    
-    setCardLinks((links) => [...links, { id: uuidv4(), name, link, date }]);
-    
-    reset();
-  };
-
-  const deleteLink = ({ target }) => {
-    const updatedLinks = cardLinks?.filter((item) => !(item?.id === target?.id));
-    setCardLinks(updatedLinks);
-  };
-
-  const getStoredLinks = () => setCardLinks(state);
-
-  useEffect(getStoredLinks, [state]);
+  const exportJson = () => {
+    const json = JSON.stringify(cardLinks);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob)
+    downloadLinks.current.download = 'backup.json';
+    downloadLinks.current.href = url;
+  }
 
   return (
     <S.Layout>
@@ -97,11 +102,9 @@ function Home() {
 
           <S.ContainerFormButtons>
             <S.Button type="submit">Insert</S.Button>
-            <S.Button
-              type="button"
-              onClick={() => saveLinksOnStorage(cardLinks)}>
-              Save
-            </S.Button>
+            <S.Download onClick={exportJson} ref={downloadLinks} download>
+              Export
+            </S.Download>
           </S.ContainerFormButtons>
         </S.Form>
 

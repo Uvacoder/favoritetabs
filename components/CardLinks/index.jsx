@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { memo } from 'react';
 
 import Trash from '../../public/icons8-trash.svg';
 import * as S from './styles';
@@ -35,4 +36,4 @@ CardLinks.propTypes = {
   deleteLink: PropTypes.func.isRequired,
 };
 
-export default CardLinks;
+export default memo(CardLinks);

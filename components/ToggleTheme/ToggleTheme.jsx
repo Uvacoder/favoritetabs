@@ -9,6 +9,8 @@ function ToggleTheme() {
   const [theme, setTheme] = useTheme();
   const [active, setActive] = useState(theme);
 
+  console.log('re-render')
+
   function handleClick() {
     setTheme();
     return active === 'light'

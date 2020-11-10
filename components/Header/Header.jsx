@@ -5,7 +5,6 @@ import { ToggleTheme } from '../ToggleTheme/ToggleTheme';
 import * as S from './styles';
 
 function Header() {
-  console.log('re-render Header');
   return (
     <S.header>
       <Link href="/">Favoritetabs</Link>
